@@ -26,8 +26,8 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/lauradouglas/pyclob"
-Repository = "https://github.com/lauradouglas/pyclob"
+Homepage = "https://github.com/lauradouglass/pyclob"
+Repository = "https://github.com/lauradouglass/pyclob"
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -29,11 +29,11 @@ result = book.settle(won=True, accounts=accounts)
 
 ---
 
-## About
+## What This Is
 
-pyclob implements the core mechanics of an electronic exchange, the same matching architecture used by NASDAQ, CME, and prediction market platforms like Kalshi and Polymarket. It is designed to be small enough to read in an afternoon and correct enough to run a real contest.
+pyclob implements the core mechanics of an electronic exchange — the same matching architecture used by NASDAQ, CME, and prediction market platforms like Kalshi and Polymarket. It is designed to be small enough to read in an afternoon and correct enough to run a real contest.
 
-This library was extracted from [WC26-X](https://wc26x.netlify.app), a live play-money prediction market exchange I built for the 2026 FIFA World Cup. The WC26-X matching engine runs in PostgreSQL (PL/pgSQL); pyclob is the same logic in pure Python, designed for simulation, backtesting, and education.
+This library was extracted from [WC26-X](https://github.com/lauradouglass/wc26x), a live play-money prediction market exchange I built for the 2026 FIFA World Cup. The WC26-X matching engine runs in PostgreSQL (PL/pgSQL); pyclob is the same logic in pure Python, designed for simulation, backtesting, and education.
 
 ---
 
@@ -211,10 +211,10 @@ pos.unrealized_pnl(mark_price) → float  # unrealized P&L at a given price
 ## Testing
 
 ```bash
-git clone https://github.com/lauradouglas/pyclob.git
+git clone https://github.com/lauradouglass/pyclob.git
 cd pyclob
 pip install -e .
-pythom -m pytest -v
+python -m pytest -v
 ```
 
 29 tests covering:
@@ -245,7 +245,7 @@ pythom -m pytest -v
 
 ## Related
 
-- [WC26-X](https://github.com/lauradouglas/wc26x) — Live prediction market exchange for the 2026 World Cup. Uses the same matching logic in PostgreSQL with real-time WebSocket push, Supabase Auth, and admin settlement UI.
+- [WC26-X](https://github.com/lauradouglass/wc26x) — Live prediction market exchange for the 2026 World Cup. Uses the same matching logic in PostgreSQL with real-time WebSocket push, Supabase Auth, and admin settlement UI.
 
 ---
 
