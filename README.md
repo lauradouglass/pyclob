@@ -29,7 +29,7 @@ result = book.settle(won=True, accounts=accounts)
 
 ---
 
-## What This Is
+## About
 
 pyclob implements the core mechanics of an electronic exchange — the same matching architecture used by NASDAQ, CME, and prediction market platforms like Kalshi and Polymarket. It is designed to be small enough to read in an afternoon and correct enough to run a real contest.
 
