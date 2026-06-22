@@ -105,7 +105,13 @@ No P&L is realized. The position grows at a blended cost.
 
 The closing portion realizes P&L against the existing cost basis:
 
-$$\text{Realized P\&L} = \begin{cases} (P_{fill} - C_{old}) \times Q_{close} & \text{if closing a long} \\ (C_{old} - P_{fill}) \times Q_{close} & \text{if closing a short} \end{cases}$$
+If closing a long:
+
+$$\text{Realized P\&L} = (P_{fill} - C_{old}) \times Q_{close}$$
+
+If closing a short:
+
+$$\text{Realized P\&L} = (C_{old} - P_{fill}) \times Q_{close}$$
 
 The remaining position keeps its original cost basis unchanged.
 
@@ -208,7 +214,7 @@ pos.unrealized_pnl(mark_price) → float  # unrealized P&L at a given price
 git clone https://github.com/lauradouglas/pyclob.git
 cd pyclob
 pip install -e .
-python -m pytest -v
+pythom -m pytest -v
 ```
 
 29 tests covering:
@@ -225,7 +231,7 @@ python -m pytest -v
 
 ---
 
-## Ney Notes
+## Key Notes
 
 **Integer cents, not floats.** All prices and bankrolls are in integer cents. Cost basis uses Python `float` for weighted-average precision but all external interfaces are cent-denominated. This avoids accumulated rounding errors across thousands of fills.
 
