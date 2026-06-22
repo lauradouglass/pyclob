@@ -14,8 +14,7 @@ Simulates a complete prediction market lifecycle for Mexico vs South Africa
 Run with: python examples/wc26_match.py
 """
 
-from pyclob.src.pyclob import OrderBook, Order, Account, Side
-
+from pyclob import OrderBook, Order, Account, Side
 
 def main():
     print("=" * 70)
@@ -61,7 +60,7 @@ def main():
         "btts.no":     46,   # Clean sheet ~46%
     }
 
-    print("\n📊 Seeding house liquidity...")
+    print("\nSeeding house liquidity...")
     for mkt_key, mid in seed_config.items():
         book = markets[mkt_key]
         for offset in range(1, 5):
@@ -78,7 +77,7 @@ def main():
     print("   → 7 markets seeded with 4 bid/ask levels each\n")
 
     # ── 3. Trading session ──────────────────────────────────────────
-    print("📈 Trading session begins...\n")
+    print("Trading session begins...\n")
 
     # Alice thinks Mexico is undervalued at 40¢ — buys 200 YES
     fills = markets["result.home"].place_order(
@@ -124,7 +123,7 @@ def main():
 
     # ── 4. Book snapshot ────────────────────────────────────────────
     print("\n" + "─" * 70)
-    print("📋 Order book snapshot — MEX RESULT (home):\n")
+    print("Order book snapshot — MEX RESULT (home):\n")
     d = markets["result.home"].depth(5)
     print(f"   {'BIDS':>12}  {'PRICE':>6}  {'ASKS':<12}")
     print(f"   {'────':>12}  {'─────':>6}  {'────':<12}")
@@ -148,7 +147,7 @@ def main():
 
     # ── 5. Pre-settlement positions ─────────────────────────────────
     print("\n" + "─" * 70)
-    print("💼 Positions before settlement:\n")
+    print(" Positions before settlement:\n")
     for name in ["alice", "bob", "charlie"]:
         acct = accounts[name]
         print(f"   {name.upper()}: bankroll ${acct.bankroll_c/100:.2f}, "
@@ -163,12 +162,12 @@ def main():
 
     # ── 6. Match result: Mexico 2 – 1 South Africa ──────────────────
     print("─" * 70)
-    print("⚽ FULL TIME: Mexico 2 – 1 South Africa")
+    print("FULL TIME: Mexico 2 – 1 South Africa")
     print("   → Result: HOME wins")
     print("   → Total goals: 3 (≥ 3 → OVER wins)")
     print("   → Both scored: YES (2-1)")
     print("─" * 70)
-    print("\n🏦 Settling all markets...\n")
+    print("\n Settling all markets...\n")
 
     # Determine winners
     settlement_map = {
@@ -183,7 +182,7 @@ def main():
 
     for mkt_key, won in settlement_map.items():
         result = markets[mkt_key].settle(won=won, accounts=accounts)
-        status = "YES ✓" if won else "NO ✗"
+        status = "YES " if won else "NO "
         print(f"   {mkt_key:20s}  {status}  "
               f"positions={result['positions_settled']}, "
               f"paid=${result['total_paid_c']/100:.2f}, "
