@@ -31,7 +31,7 @@ result = book.settle(won=True, accounts=accounts)
 
 ## About
 
-pyclob implements the core mechanics of an electronic exchange — the same matching architecture used by NASDAQ, CME, and prediction market platforms like Kalshi and Polymarket. It is designed to be small enough to read in an afternoon and correct enough to run a real contest.
+pyclob implements the core mechanics of an electronic exchange, the same matching architecture used by NASDAQ, CME, and prediction market platforms like Kalshi and Polymarket. It is designed to be small enough to read in an afternoon and correct enough to run a real contest.
 
 This library was extracted from [WC26-X](https://github.com/lauradouglass/wc26x), a live play-money prediction market exchange I built for the 2026 FIFA World Cup. The WC26-X matching engine runs in PostgreSQL (PL/pgSQL); pyclob is the same logic in pure Python, designed for simulation, backtesting, and education.
 
@@ -107,11 +107,15 @@ The closing portion realizes P&L against the existing cost basis:
 
 If closing a long:
 
-$$\text{Realized P\&L} = (P_{fill} - C_{old}) \times Q_{close}$$
+```
+Realized PnL = (fill_price - avg_cost) × closing_qty
+```
 
 If closing a short:
 
-$$\text{Realized P\&L} = (C_{old} - P_{fill}) \times Q_{close}$$
+```
+Realized PnL = (avg_cost - fill_price) × closing_qty
+```
 
 The remaining position keeps its original cost basis unchanged.
 
@@ -214,7 +218,7 @@ pos.unrealized_pnl(mark_price) → float  # unrealized P&L at a given price
 git clone https://github.com/lauradouglass/pyclob.git
 cd pyclob
 pip install -e .
-python -m pytest -v
+pytest -v
 ```
 
 29 tests covering:
