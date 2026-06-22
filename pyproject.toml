@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pyclob"
-version = "0.1.0"
+version = "0.1.1"
 description = "A pure-Python central limit order book (CLOB) matching engine for binary event contracts"
 readme = "README.md"
 license = {text = "MIT"}
